@@ -53,3 +53,8 @@ action_figure_2 = Actionfigure.new("5.5 intches", "Batman", "Black", 20)
 action_figure_3 = Actionfigure.new("12 inches", "Godzilla", ["Green", "Gray"], 11)
 
 puts action_figure_1.cost
+puts action_figure_1.height
+puts action_figure_1.model
+puts action_figure_1.color
+action_figure_1.cost = 100
+puts action_figure_1.cost
