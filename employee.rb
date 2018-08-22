@@ -1,24 +1,16 @@
-# employee_1 = ["Bill", "McNeal", 70000, true]
-# employee_2 = ["Harriet", "Hayes", 80000, true]
-
-# puts "safsadf"
-
-# employee_1 employee_1 employee_1 employee_1 
-# employee_2 employee_2 employee_2 employee_2 
-
-
 class Employee
-  def initialize(input_first_name, input_last_name, input_salary, input_active)
-    @first_name = input_first_name
-    @last_name = input_last_name
-    @salary = input_salary
-    @active = input_active
+  attr_reader :first_name, :last_name, :salary, :active
+  attr_writer :first_name, :last_name, :active
+
+  def initialize(input_options)
+    @first_name = input_options[:first_name]
+    @last_name = input_options[:last_name]
+    @salary= input_options[:salary]
+    @active = input_options[:active]
   end
 
   def print_info
-    puts "hey"
-    puts "#{ @first_name } #{ @salary }"
-    5
+    puts"#{ first_name } #{ last_name } makes #{ salary } a year."
   end
 
   def give_annual_raise
@@ -26,13 +18,20 @@ class Employee
   end
 end
 
-employee_1 = Employee.new("Bill", "McNeal", 70000, true)
-employee_1
-employee_2 = Employee.new("Harriet", "Hayes", 80000, true)
+employee_1 = Employee.new(
+                          first_name: "Bill", 
+                          last_name: "McNeal", 
+                          salary: 70000, 
+                          active: true
+                          )
+employee_2 = Employee.new(
+                          first_name: "Harriet", 
+                          last_name: "Hayes", 
+                          salary: 80000, 
+                          active: true
+                          )
+
 employee_2.print_info
+employee_1.print_info
 
-employee_2.give_annual_raise
-
-p employee_1.print_info
-p employee_2.print_info
 

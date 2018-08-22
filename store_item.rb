@@ -20,37 +20,50 @@
 
 
 class Actionfigure
-  def initialize(height, model, color, cost)
-    @height = height
-    @model  = model
-    @color = color
-    @cost = cost
-  end
-
-  def height
-    @height
-  end
-
-  def model
-    @model 
-  end
-
-  def color
-    @color
-  end
-
-  def cost
-    @cost
-  end
-
-  def cost=(new_value)
-    @cost = new_value
+  attr_reader :height, :model, :color, :cost
+  attr_writer :cost
+  def initialize(input_options)
+    @height = input_options[:height]
+    @model  = input_options[:model]
+    @color = input_options[:color]
+    @cost = input_options[:cost]
   end
 end
 
-action_figure_1 = Actionfigure.new("6 inches", "Superman", ["red", "blue", "yellow"], 15)
-action_figure_2 = Actionfigure.new("5.5 intches", "Batman", "Black", 20)
-action_figure_3 = Actionfigure.new("12 inches", "Godzilla", ["Green", "Gray"], 11)
+class Costumes < Actionfigure
+  def initialize(input_options)
+    super(input_options)
+    @outfit = input_options[:outfit]
+  end
+end  
+
+action_figure_1 = Actionfigure.new(
+                                  height: "6 inches", 
+                                  model: "Superman", 
+                                  color: ["red", "blue", "yellow"], 
+                                  cost:15
+                                  )
+action_figure_2 = Actionfigure.new(
+                                  height: "5.5 intches", 
+                                  model: "Batman", 
+                                  color: "Black", 
+                                  cost: 20
+                                  )
+action_figure_3 = Actionfigure.new(
+                                  height: "12 inches", 
+                                  model: "Godzilla", 
+                                  color: ["Green", "Gray"],
+                                  cost: 11
+                                  )
+action_figure_4 = Costumes.new(
+                              height: "100 inches", 
+                              model: "Superman w/cape",
+                              color: ["red", "blue", "yellow"],
+                              cost: 25,
+                              outfit: "Cape"
+                              )
+
+p action_figure_4
 
 puts action_figure_1.cost
 puts action_figure_1.height
